@@ -123,7 +123,7 @@ def plot(data):
                                  yaxis='y2')
     data = [daily_reading, average_reading]
     layout = go.Layout(
-        title="How Many Words I've read on Pocket",
+        title="How Many Words I've read on Pocket Per Day",
         yaxis=dict(
             title='Daily',
             range=[0, 50000]
@@ -132,7 +132,8 @@ def plot(data):
             title='Average',
             overlaying='y',
             side='right',
-            range=[0, 50000]
+            range=[0, 15000],
+            dtick=3000,
         ),
         xaxis=dict(
             range=[x[1], x[-1]]
@@ -141,7 +142,7 @@ def plot(data):
     fig = go.Figure(data=data, layout=layout)
     return py.plot(fig,
                    auto_open=False,
-                   filename="How Many Words I've read on Pocket")
+                   filename="How Many Words I've read on Pocket Per Day")
 
 
 def main():
